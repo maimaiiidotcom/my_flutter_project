@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 
 void main() {
   runApp(const MyApp());
@@ -122,4 +123,41 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+class FileMaterial extends Equatable {
+  final String id;
+  final String name;
+  final String url;
+  final String type; // e.g., pdf, docx, image, etc.
+  final int size; // in bytes
+  final String uploaderId;
+  final String subject;
+  final List<String> tags;
+  final DateTime uploadedAt;
+
+  const FileMaterial({
+    required this.id,
+    required this.name,
+    required this.url,
+    required this.type,
+    required this.size,
+    required this.uploaderId,
+    required this.subject,
+    required this.tags,
+    required this.uploadedAt,
+  });
+
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+        url,
+        type,
+        size,
+        uploaderId,
+        subject,
+        tags,
+        uploadedAt,
+      ];
 }
