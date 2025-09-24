@@ -1,0 +1,30 @@
+import 'package:dartz/dartz.dart';
+import '../entities/file_material.dart';
+import '../entities/failure.dart';
+import '../repositories/file_repository.dart';
+
+class UploadFile {
+  final FileRepository repository;
+
+  UploadFile(this.repository);
+
+  Future<Either<Failure, FileMaterial>> call({
+    required String name,
+    required String path,
+    required String type,
+    required int size,
+    required String uploaderId,
+    required String subject,
+    List<String>? tags,
+  }) {
+    return repository.uploadFile(
+      name: name,
+      path: path,
+      type: type,
+      size: size,
+      uploaderId: uploaderId,
+      subject: subject,
+      tags: tags,
+    );
+  }
+}

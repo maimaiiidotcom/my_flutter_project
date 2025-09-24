@@ -1,0 +1,20 @@
+import 'package:dartz/dartz.dart';
+import '../entities/file_material.dart';
+import '../entities/failure.dart';
+import '../repositories/file_repository.dart';
+
+class DownloadFile {
+  final FileRepository repository;
+
+  DownloadFile(this.repository);
+
+  Future<Either<Failure, FileMaterial>> call({
+    required String fileId,
+    required String studentId,
+  }) {
+    return repository.downloadFile(
+      fileId: fileId,
+      studentId: studentId,
+    );
+  }
+}

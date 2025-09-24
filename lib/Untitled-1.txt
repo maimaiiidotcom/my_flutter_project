@@ -1,0 +1,26 @@
+import 'package:dartz/dartz.dart';
+import '../entities/file_material.dart';
+import '../entities/failure.dart';
+
+abstract class FileRepository {
+  Future<Either<Failure, FileMaterial>> uploadFile({
+    required String name,
+    required String path,
+    required String type,
+    required int size,
+    required String uploaderId,
+    required String subject,
+    List<String>? tags,
+  });
+
+  Future<Either<Failure, List<FileMaterial>>> getFilesForStudent({
+    required String studentId,
+    String? subject,
+    List<String>? tags,
+  });
+
+  Future<Either<Failure, FileMaterial>> downloadFile({
+    required String fileId,
+    required String studentId,
+  });
+}
