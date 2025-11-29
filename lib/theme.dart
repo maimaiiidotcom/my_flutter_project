@@ -156,3 +156,17 @@ final ThemeData appThemeDark = ThemeData(
     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
   ),
 );
+
+// Added helper to pick theme by brightness
+ThemeData appThemeFor(Brightness brightness) {
+  return brightness == Brightness.dark ? appThemeDark : appThemeLight;
+}
+
+// PR helper: recommended branch name and quick checklist for this feature
+// Recommended branch: feature/user-auth
+// Quick checklist:
+//  - Ensure Firebase initialized in app before using providers.
+//  - Run: flutter pub get
+//  - Run unit/formatting checks and CI locally if available.
+//  - Commit message: "feat(user): add auth & profile presentation layer with Riverpod"
+//  - Push and create PR as described in repository guidelines.
